@@ -32,7 +32,7 @@ The following hooks are included in this module:
 
 These hooks were previously bundled with the feathers-authentication module, but have been deprecated in favor of the [feathers-permissions hooks](https://github.com/feathersjs/feathers-permissions).
 
-Please refer to the [feathers-legacy-authentication-hooks documentation](http://docs.feathersjs.com/) for more details.
+Please refer to the [documentation](https://github.com/feathersjs/feathers-docs/blob/v2.0.0/authorization/bundled-hooks.md) for more details.
 
 ## License
 
