@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import hooks from '../src/index';
+import 'babel-polyfill';
 
 describe('Auth hooks', () => {
   it('is CommonJS compatible', () => {
