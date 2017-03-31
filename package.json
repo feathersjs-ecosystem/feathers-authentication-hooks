@@ -54,6 +54,7 @@
     "debug": "^2.3.2",
     "feathers-errors": "^2.5.0",
     "jsonwebtoken": "^7.1.9",
+    "lodash": "^4.17.4",
     "lodash.isplainobject": "^4.0.6"
   },
   "devDependencies": {
