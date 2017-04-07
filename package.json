@@ -1,8 +1,8 @@
 {
-  "name": "feathers-legacy-authentication-hooks",
-  "description": "Hooks from feathers-authentication@0.7.x",
-  "version": "1.1.0",
-  "homepage": "https://github.com/feathersjs/feathers-legacy-authentication-hooks",
+  "name": "feathers-authentication-hooks",
+  "description": "Feathers authentication hooks",
+  "version": "0.0.0",
+  "homepage": "https://github.com/feathersjs/feathers-authentication-hooks",
   "main": "lib/",
   "keywords": [
     "feathers",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/feathersjs/feathers-legacy-authentication-hooks.git"
+    "url": "git://github.com/feathersjs/feathers-authentication-hooks.git"
   },
   "author": {
     "name": "Feathers contributors",
@@ -20,7 +20,7 @@
   },
   "contributors": [],
   "bugs": {
-    "url": "https://github.com/feathersjs/feathers-legacy-authentication-hooks/issues"
+    "url": "https://github.com/feathersjs/feathers-authentication-hooks/issues"
   },
   "engines": {
     "node": ">= 4.6.0"
