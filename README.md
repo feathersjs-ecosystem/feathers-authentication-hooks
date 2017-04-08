@@ -1,41 +1,25 @@
-# feathers-legacy-authentication-hooks
+# feathers-authentication-hooks
 
-[![Build Status](https://travis-ci.org/feathersjs/feathers-legacy-authentication-hooks.png?branch=master)](https://travis-ci.org/feathersjs/feathers-legacy-authentication-hooks)
-[![Code Climate](https://codeclimate.com/github/feathersjs/feathers-legacy-authentication-hooks/badges/gpa.svg)](https://codeclimate.com/github/feathersjs/feathers-legacy-authentication-hooks)
-[![Test Coverage](https://codeclimate.com/github/feathersjs/feathers-legacy-authentication-hooks/badges/coverage.svg)](https://codeclimate.com/github/feathersjs/feathers-legacy-authentication-hooks/coverage)
-[![Dependency Status](https://img.shields.io/david/feathersjs/feathers-legacy-authentication-hooks.svg?style=flat-square)](https://david-dm.org/feathersjs/feathers-legacy-authentication-hooks)
-[![Download Status](https://img.shields.io/npm/dm/feathers-legacy-authentication-hooks.svg?style=flat-square)](https://www.npmjs.com/package/feathers-legacy-authentication-hooks)
+[![Build Status](https://travis-ci.org/feathersjs/feathers-authentication-hooks.png?branch=master)](https://travis-ci.org/feathersjs/feathers-authentication-hooks)
+[![Code Climate](https://codeclimate.com/github/feathersjs/feathers-authentication-hooks/badges/gpa.svg)](https://codeclimate.com/github/feathersjs/feathers-authentication-hooks)
+[![Test Coverage](https://codeclimate.com/github/feathersjs/feathers-authentication-hooks/badges/coverage.svg)](https://codeclimate.com/github/feathersjs/feathers-authentication-hooks/coverage)
+[![Dependency Status](https://img.shields.io/david/feathersjs/feathers-authentication-hooks.svg?style=flat-square)](https://david-dm.org/feathersjs/feathers-authentication-hooks)
+[![Download Status](https://img.shields.io/npm/dm/feathers-authentication-hooks.svg?style=flat-square)](https://www.npmjs.com/package/feathers-authentication-hooks)
 
 > Hooks from feathers-authentication@0.7.x
 
 ## Installation
 
 ```
-npm install feathers-legacy-authentication-hooks --save
+npm install feathers-authentication-hooks --save
 ```
 
 ## Documentation
 
-The following hooks are included in this module:
-
-- associateCurrentUser
-- hashPassword
-- populateUser
-- queryWithCurrentUser
-- restrictToAuthenticated
-- restrictToOwner
-- restrictToRoles
-- verifyToken
-- verifyOrRestrict
-- populateOrRestrict
-- hasRoleOrRestrict
-
-These hooks were previously bundled with the feathers-authentication module, but have been deprecated in favor of the [feathers-permissions hooks](https://github.com/feathersjs/feathers-permissions).
-
-Please refer to the [documentation](https://github.com/feathersjs/feathers-docs/blob/v2.0.0/authorization/bundled-hooks.md) for more details.
+Please refer to the [documentation](https://docs.feathersjs.com/api/authentication/hooks.html) for more details.
 
 ## License
 
-Copyright (c) 2016
+Copyright (c) 2017
 
 Licensed under the [MIT license](LICENSE).
