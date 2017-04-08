@@ -50,12 +50,11 @@
     "lib": "lib"
   },
   "dependencies": {
-    "bcryptjs": "^2.3.0",
     "debug": "^2.3.2",
     "feathers-errors": "^2.5.0",
-    "jsonwebtoken": "^7.1.9",
-    "lodash": "^4.17.4",
-    "lodash.isplainobject": "^4.0.6"
+    "lodash.get": "^4.4.2",
+    "lodash.isplainobject": "^4.0.6",
+    "lodash.set": "^4.3.2"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",

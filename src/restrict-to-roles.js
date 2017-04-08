@@ -1,5 +1,6 @@
 import errors from 'feathers-errors';
 import isPlainObject from 'lodash.isplainobject';
+import get from 'lodash.get';
 
 const defaults = {
   fieldName: 'roles',
@@ -32,8 +33,8 @@ export default function (options = {}) {
     options = Object.assign({}, defaults, hook.app.get('auth'), options);
 
     let authorized = false;
-    let roles = hook.params.user[options.fieldName];
-    const id = hook.params.user[options.idField];
+    let roles = get(hook.params.user, options.fieldName);
+    const id = get(hook.params.user, options.idField);
     const error = new errors.Forbidden('You do not have valid permissions to access this.');
 
     if (id === undefined) {
@@ -63,31 +64,29 @@ export default function (options = {}) {
       }
 
       // look up the document and throw a Forbidden error if the user is not an owner
-      return new Promise((resolve, reject) => {
-        // Set provider as undefined so we avoid an infinite loop if this hook is
-        // set on the resource we are requesting.
-        const params = Object.assign({}, hook.params, { provider: undefined });
+      // Set provider as undefined so we avoid an infinite loop if this hook is
+      // set on the resource we are requesting.
+      const params = Object.assign({}, hook.params, { provider: undefined });
 
-        this.get(hook.id, params).then(data => {
-          if (data.toJSON) {
-            data = data.toJSON();
-          } else if (data.toObject) {
-            data = data.toObject();
-          }
+      return this.get(hook.id, params).then(data => {
+        if (data.toJSON) {
+          data = data.toJSON();
+        } else if (data.toObject) {
+          data = data.toObject();
+        }
 
-          let field = data[options.ownerField];
+        let field = get(data, options.ownerField);
 
-          // Handle nested Sequelize or Mongoose models
-          if (isPlainObject(field)) {
-            field = field[options.idField];
-          }
+        // Handle nested Sequelize or Mongoose models
+        if (isPlainObject(field)) {
+          field = get(field, options.idField);
+        }
 
-          if (field === undefined || field.toString() !== id.toString()) {
-            reject(new errors.Forbidden('You do not have the permissions to access this.'));
-          }
+        if (field === undefined || field.toString() !== id.toString()) {
+          throw new errors.Forbidden('You do not have the permissions to access this.');
+        }
 
-          resolve(hook);
-        }).catch(reject);
+        return hook;
       });
     }
 

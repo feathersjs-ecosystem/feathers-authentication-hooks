@@ -15,14 +15,6 @@ describe('Auth hooks', () => {
     expect(typeof hooks.associateCurrentUser).to.equal('function');
   });
 
-  it('exposes hashPassword hook', () => {
-    expect(typeof hooks.hashPassword).to.equal('function');
-  });
-
-  it('exposes populateUser hook', () => {
-    expect(typeof hooks.populateUser).to.equal('function');
-  });
-
   it('exposes queryWithCurrentUser hook', () => {
     expect(typeof hooks.queryWithCurrentUser).to.equal('function');
   });
@@ -37,22 +29,6 @@ describe('Auth hooks', () => {
 
   it('exposes restrictToOwner hook', () => {
     expect(typeof hooks.restrictToOwner).to.equal('function');
-  });
-
-  it('exposes ownerOrRestrictChanges hook', () => {
-    expect(typeof hooks.ownerOrRestrictChanges).to.equal('function');
-  });
-
-  it('exposes verifyToken hook', () => {
-    expect(typeof hooks.verifyToken).to.equal('function');
-  });
-
-  it('exposes verifyOrRestrict hook', () => {
-    expect(typeof hooks.verifyOrRestrict).to.equal('function');
-  });
-
-  it('exposes populateOrRestrict hook', () => {
-    expect(typeof hooks.populateOrRestrict).to.equal('function');
   });
 
   it('exposes hasRoleOrRestrict hook', () => {
