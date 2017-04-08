@@ -1,5 +1,7 @@
 import errors from 'feathers-errors';
 import isPlainObject from 'lodash.isplainobject';
+import get from 'lodash.get';
+import set from 'lodash.set';
 
 const defaults = {
   fieldName: 'roles',
@@ -31,14 +33,14 @@ export default function (options = {}) {
       return hook;
     }
 
-    options = Object.assign({}, defaults, hook.app.get('auth'), options);
+    options = Object.assign({}, defaults, hook.app.get('authentication'), options);
 
     // If we don't have a user we have to always use find instead of get because we must not return id queries that are unrestricted and we don't want the developer to have to add after hooks.
     let query = Object.assign({}, hook.params.query, options.restrict);
 
     if (hook.id !== null && hook.id !== undefined) {
       const id = {};
-      id[options.idField] = hook.id;
+      set(id, options.idField, hook.id);
       query = Object.assign(query, id);
     }
 
@@ -65,8 +67,8 @@ export default function (options = {}) {
     }
 
     let authorized = false;
-    let roles = hook.params.user[options.fieldName];
-    const id = hook.params.user[options.idField];
+    let roles = get(hook.params.user, options.fieldName);
+    const id = get(hook.params.user, options.idField);
     const error = new errors.Forbidden('You do not have valid permissions to access this.');
 
     if (id === undefined) {
@@ -108,7 +110,7 @@ export default function (options = {}) {
             data = data.toObject();
           }
 
-          let field = data[options.ownerField];
+          let field = get(data, options.ownerField);
 
           // Handle nested Sequelize or Mongoose models
           if (isPlainObject(field)) {

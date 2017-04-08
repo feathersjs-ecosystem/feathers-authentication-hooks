@@ -2,6 +2,10 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import { restrictToOwner } from '../src/index';
 
+const app = {
+  get () { return {}; }
+};
+
 let MockData;
 let MockData2;
 let MockService;
@@ -61,7 +65,8 @@ describe('restrictToOwner', () => {
         id: '1',
         type: 'before',
         method: 'get',
-        params: {}
+        params: {},
+        app
       };
 
       try {
@@ -82,7 +87,8 @@ describe('restrictToOwner', () => {
         method: 'get',
         params: {
           provider: 'rest'
-        }
+        },
+        app
       };
 
       try {
@@ -105,10 +111,58 @@ describe('restrictToOwner', () => {
           provider: 'rest',
           user: { _id: '1' }
         },
-        app: {
-          get: function () { return {}; }
-        }
+        app
       };
+    });
+
+    describe('when method is find', () => {
+      it('when query is empty, uses queryWithCurrentUser', () => {
+        hook.method = 'find';
+        delete hook.id;
+
+        restrictToOwner()(hook);
+
+        expect(hook.params.query).to.deep.equal({
+          userId: '1'
+        });
+      });
+
+      it('when query is empty, merges queryWithCurrentUser', () => {
+        hook.method = 'find';
+        hook.params.query = { name: 'David' };
+        delete hook.id;
+
+        restrictToOwner()(hook);
+
+        expect(hook.params.query).to.deep.equal({
+          name: 'David',
+          userId: '1'
+        });
+      });
+    });
+
+    describe('when is is `null`', () => {
+      it('when query is empty, uses queryWithCurrentUser', () => {
+        hook.id = null;
+
+        restrictToOwner()(hook);
+
+        expect(hook.params.query).to.deep.equal({
+          userId: '1'
+        });
+      });
+
+      it('when query is empty, merges queryWithCurrentUser', () => {
+        hook.params.query = { name: 'David' };
+        hook.id = null;
+
+        restrictToOwner()(hook);
+
+        expect(hook.params.query).to.deep.equal({
+          name: 'David',
+          userId: '1'
+        });
+      });
     });
 
     describe('when user is missing idField', () => {

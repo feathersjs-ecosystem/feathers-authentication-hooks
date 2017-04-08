@@ -1,3 +1,6 @@
+import get from 'lodash.get';
+import set from 'lodash.set';
+
 const defaults = {
   idField: '_id',
   as: 'userId'
@@ -17,14 +20,14 @@ export default function (options = {}) {
       throw new Error('There is no current user to associate.');
     }
 
-    options = Object.assign({}, defaults, hook.app.get('auth'), options);
+    options = Object.assign({}, defaults, hook.app.get('authentication'), options);
 
-    const id = hook.params.user[options.idField];
+    const id = get(hook.params.user, options.idField);
 
     if (id === undefined) {
       throw new Error(`Current user is missing '${options.idField}' field.`);
     }
 
-    hook.params.query[options.as] = id;
+    set(hook.params, `query.${options.as}`, id);
   };
 }
