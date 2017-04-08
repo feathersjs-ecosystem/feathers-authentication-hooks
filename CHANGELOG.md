@@ -1,9 +1,25 @@
 # Change Log
 
-## [1.0.0](https://github.com/feathersjs/feathers-legacy-authentication-hooks/tree/1.0.0) (2016-11-17)
+## [v0.1.0](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.0) (2017-04-08)
+[Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v1.1.0...v0.1.0)
+
 **Merged pull requests:**
 
-- initial commit [\#1](https://github.com/feathersjs/feathers-legacy-authentication-hooks/pull/1) ([marshallswain](https://github.com/marshallswain))
+- Update all dependencies 🌴 [\#5](https://github.com/feathersjs/feathers-authentication-hooks/pull/5) ([greenkeeperio-bot](https://github.com/greenkeeperio-bot))
+- Remove obsolete hooks and update remaining [\#4](https://github.com/feathersjs/feathers-authentication-hooks/pull/4) ([daffl](https://github.com/daffl))
+- Rename to feathers-authentication-hooks [\#3](https://github.com/feathersjs/feathers-authentication-hooks/pull/3) ([daffl](https://github.com/daffl))
+
+## [v1.1.0](https://github.com/feathersjs/feathers-authentication-hooks/tree/v1.1.0) (2017-03-31)
+[Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/1.0.0...v1.1.0)
+
+**Merged pull requests:**
+
+- Adds ownerOrRestrictChanges. [\#2](https://github.com/feathersjs/feathers-authentication-hooks/pull/2) ([codingfriend1](https://github.com/codingfriend1))
+
+## [1.0.0](https://github.com/feathersjs/feathers-authentication-hooks/tree/1.0.0) (2016-11-17)
+**Merged pull requests:**
+
+- initial commit [\#1](https://github.com/feathersjs/feathers-authentication-hooks/pull/1) ([marshallswain](https://github.com/marshallswain))
 
 
 
