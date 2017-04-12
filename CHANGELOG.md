@@ -1,5 +1,17 @@
 # Change Log
 
+## [v0.1.1](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.1) (2017-04-12)
+[Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v0.1.0...v0.1.1)
+
+**Closed issues:**
+
+- restrictToOwner 'as' option  [\#7](https://github.com/feathersjs/feathers-authentication-hooks/issues/7)
+- The documentation link on the README is broken [\#6](https://github.com/feathersjs/feathers-authentication-hooks/issues/6)
+
+**Merged pull requests:**
+
+- Pass ownerField from restrictToOwner as as in queryWithCurrentUser [\#8](https://github.com/feathersjs/feathers-authentication-hooks/pull/8) ([daffl](https://github.com/daffl))
+
 ## [v0.1.0](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.0) (2017-04-08)
 **Merged pull requests:**
 
