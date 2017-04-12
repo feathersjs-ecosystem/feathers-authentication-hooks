@@ -116,14 +116,16 @@ describe('restrictToOwner', () => {
     });
 
     describe('when method is find', () => {
-      it('when query is empty, uses queryWithCurrentUser', () => {
+      it('when query is empty, uses queryWithCurrentUser and uses ownerField (#7)', () => {
         hook.method = 'find';
         delete hook.id;
 
-        restrictToOwner()(hook);
+        restrictToOwner({
+          ownerField: 'user'
+        })(hook);
 
         expect(hook.params.query).to.deep.equal({
-          userId: '1'
+          user: '1'
         });
       });
 
