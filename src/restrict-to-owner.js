@@ -22,7 +22,10 @@ export default function (options = {}) {
     }
 
     if (hook.method === 'find' || hook.id === null) {
-      return queryWithCurrentUser(options)(hook);
+      return queryWithCurrentUser({
+        idField: options.idField,
+        as: options.ownerField
+      })(hook);
     }
 
     // Check hook is being called on an allowable method
