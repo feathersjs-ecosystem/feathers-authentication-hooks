@@ -59,6 +59,10 @@ export default function (options = {}) {
     // If we should allow users that own the resource and they don't already have
     // the permitted roles check to see if they are the owner of the requested resource
     if (options.owner && !authorized) {
+      if (hook.id === null) {
+        throw new errors.BadRequest('Can not verify roles when changing many resources.');
+      }
+
       if (!hook.id) {
         throw new errors.MethodNotAllowed(`The 'restrictToRoles' hook should only be used on the 'get', 'update', 'patch' and 'remove' service methods if you are using the 'owner' field.`);
       }
