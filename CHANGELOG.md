@@ -1,5 +1,13 @@
 # Change Log
 
+## [v0.1.2](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.2) (2017-04-14)
+[Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v0.1.1...v0.1.2)
+
+**Merged pull requests:**
+
+- Add an error message when id is null [\#10](https://github.com/feathersjs/feathers-authentication-hooks/pull/10) ([daffl](https://github.com/daffl))
+- Add Greenkeeper badge 🌴 [\#9](https://github.com/feathersjs/feathers-authentication-hooks/pull/9) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+
 ## [v0.1.1](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.1) (2017-04-12)
 [Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v0.1.0...v0.1.1)
 
