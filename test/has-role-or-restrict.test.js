@@ -1,8 +1,6 @@
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-chai.use(sinonChai);
-
 import { hasRoleOrRestrict } from '../src/index';
 
 let mockFind = sinon.stub().returns(Promise.resolve([{text: 'test', approved: true}]));
@@ -13,6 +11,8 @@ let mockService = {
 let MockData;
 let MockService;
 let options;
+
+chai.use(sinonChai);
 
 describe('hasRoleOrRestrict', () => {
   beforeEach(() => {
