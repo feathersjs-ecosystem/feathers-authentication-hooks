@@ -30,7 +30,7 @@ export default function (options = {}) {
       throw new errors.NotAuthenticated();
     }
 
-    options = Object.assign({}, defaults, hook.app.get('auth'), options);
+    options = Object.assign({}, defaults, hook.app.get('authentication'), options);
 
     let authorized = false;
     let roles = get(hook.params.user, options.fieldName);
