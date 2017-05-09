@@ -1,5 +1,17 @@
 # Change Log
 
+## [v0.1.3](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.3) (2017-05-09)
+[Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v0.1.2...v0.1.3)
+
+**Closed issues:**
+
+- 'authentication' or 'auth' [\#13](https://github.com/feathersjs/feathers-authentication-hooks/issues/13)
+
+**Merged pull requests:**
+
+- Use 'authentication' instead of 'auth' when setting options [\#14](https://github.com/feathersjs/feathers-authentication-hooks/pull/14) ([3bola](https://github.com/3bola))
+- Update semistandard to the latest version 🚀 [\#12](https://github.com/feathersjs/feathers-authentication-hooks/pull/12) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+
 ## [v0.1.2](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.2) (2017-04-14)
 [Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v0.1.1...v0.1.2)
 
