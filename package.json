@@ -1,7 +1,7 @@
 {
   "name": "feathers-authentication-hooks",
   "description": "Feathers authentication hooks",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/feathersjs/feathers-authentication-hooks",
   "main": "lib/",
   "keywords": [
