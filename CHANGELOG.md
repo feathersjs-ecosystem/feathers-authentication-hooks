@@ -1,5 +1,17 @@
 # Change Log
 
+## [v0.1.4](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.4) (2017-06-01)
+[Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v0.1.3...v0.1.4)
+
+**Closed issues:**
+
+- Hook "restrictToOwner" looses context \(this\) when wrapped [\#17](https://github.com/feathersjs/feathers-authentication-hooks/issues/17)
+- hook.app.get\('authentication'\) might be a problem. [\#15](https://github.com/feathersjs/feathers-authentication-hooks/issues/15)
+
+**Merged pull requests:**
+
+- Changed hooks to use `hook.service` instead of `this` [\#18](https://github.com/feathersjs/feathers-authentication-hooks/pull/18) ([3bola](https://github.com/3bola))
+
 ## [v0.1.3](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.3) (2017-05-09)
 [Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v0.1.2...v0.1.3)
 
@@ -10,7 +22,7 @@
 **Merged pull requests:**
 
 - Use 'authentication' instead of 'auth' when setting options [\#14](https://github.com/feathersjs/feathers-authentication-hooks/pull/14) ([3bola](https://github.com/3bola))
-- Update semistandard to the latest version 🚀 [\#12](https://github.com/feathersjs/feathers-authentication-hooks/pull/12) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+- Update semistandard to the latest version 🚀 [\#12](https://github.com/feathersjs/feathers-authentication-hooks/pull/12) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v0.1.2](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.2) (2017-04-14)
 [Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v0.1.1...v0.1.2)
@@ -18,7 +30,7 @@
 **Merged pull requests:**
 
 - Add an error message when id is null [\#10](https://github.com/feathersjs/feathers-authentication-hooks/pull/10) ([daffl](https://github.com/daffl))
-- Add Greenkeeper badge 🌴 [\#9](https://github.com/feathersjs/feathers-authentication-hooks/pull/9) ([greenkeeper[bot]](https://github.com/integration/greenkeeper))
+- Add Greenkeeper badge 🌴 [\#9](https://github.com/feathersjs/feathers-authentication-hooks/pull/9) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
 
 ## [v0.1.1](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.1) (2017-04-12)
 [Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v0.1.0...v0.1.1)
