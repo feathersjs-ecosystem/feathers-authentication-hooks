@@ -53,7 +53,7 @@ export default function (options = {}) {
         return hook;
       }
 
-      return this.find({ query }, params).then(results => {
+      return hook.service.find({ query }, params).then(results => {
         if (hook.method === 'get' && Array.isArray(results) && results.length === 1) {
           hook.result = results[0];
           return hook;
@@ -103,7 +103,7 @@ export default function (options = {}) {
         // set on the resource we are requesting.
         const params = Object.assign({}, hook.params, { provider: undefined });
 
-        this.get(hook.id, params).then(data => {
+        hook.service.get(hook.id, params).then(data => {
           if (data.toJSON) {
             data = data.toJSON();
           } else if (data.toObject) {
@@ -131,7 +131,7 @@ export default function (options = {}) {
         return hook;
       }
 
-      return this.find({ query }, params).then(results => {
+      return hook.service.find({ query }, params).then(results => {
         if (hook.method === 'get' && Array.isArray(results) && results.length === 1) {
           hook.result = results[0];
           return hook;

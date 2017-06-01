@@ -111,7 +111,8 @@ describe('restrictToOwner', () => {
           provider: 'rest',
           user: { _id: '1' }
         },
-        app
+        app,
+        service: MockService
       };
     });
 
