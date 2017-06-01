@@ -100,7 +100,8 @@ describe('restrictToRoles', () => {
         },
         app: {
           get: function () { return {}; }
-        }
+        },
+        service: MockService
       };
     });
 

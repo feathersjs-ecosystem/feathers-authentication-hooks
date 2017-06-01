@@ -72,7 +72,7 @@ export default function (options = {}) {
       // set on the resource we are requesting.
       const params = Object.assign({}, hook.params, { provider: undefined });
 
-      return this.get(hook.id, params).then(data => {
+      return hook.service.get(hook.id, params).then(data => {
         if (data.toJSON) {
           data = data.toJSON();
         } else if (data.toObject) {

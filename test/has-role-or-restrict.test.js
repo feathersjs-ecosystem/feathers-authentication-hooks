@@ -81,9 +81,9 @@ describe('hasRoleOrRestrict', () => {
     it('should merge the restriction in to the query and call find', () => {
       let hook = {
         app: {
-          service: mockService,
           get: function () {}
         },
+        service: MockService,
         method: 'find',
         type: 'before',
         params: {
@@ -100,9 +100,9 @@ describe('hasRoleOrRestrict', () => {
       let hook = {
         id: '525235',
         app: {
-          service: MockService,
           get: function () {}
         },
+        service: MockService,
         method: 'find',
         type: 'before',
         params: {
@@ -132,7 +132,8 @@ describe('hasRoleOrRestrict', () => {
         },
         app: {
           get: function () { return {}; }
-        }
+        },
+        service: MockService
       };
     });
 
@@ -171,9 +172,9 @@ describe('hasRoleOrRestrict', () => {
       it('should merge the restriction in to the query and call find', () => {
         let hook = {
           app: {
-            service: mockService,
             get: function () {}
           },
+          service: MockService,
           method: 'find',
           type: 'before',
           params: {
@@ -191,9 +192,9 @@ describe('hasRoleOrRestrict', () => {
           id: '525235',
           method: 'find',
           app: {
-            service: MockService,
             get: function () {}
           },
+          service: MockService,
           type: 'before',
           params: {
             provider: 'rest'
@@ -276,7 +277,8 @@ describe('hasRoleOrRestrict', () => {
           },
           app: {
             get: function () { return {}; }
-          }
+          },
+          service: MockService
         };
       });
 
