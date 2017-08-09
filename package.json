@@ -50,7 +50,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "debug": "^2.3.2",
+    "debug": "^3.0.0",
     "feathers-errors": "^2.5.0",
     "lodash.get": "^4.4.2",
     "lodash.isplainobject": "^4.0.6",
