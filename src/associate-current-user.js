@@ -31,7 +31,11 @@ export default function (options = {}) {
     function setId (obj) {
       set(obj, options.as, id);
     }
-
+    
+    if (!hook.data) {
+      hook.data = {};
+    }
+    
     // Handle arrays.
     if (Array.isArray(hook.data)) {
       hook.data.forEach(setId);
