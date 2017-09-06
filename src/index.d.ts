@@ -31,8 +31,6 @@ declare namespace feathersAuthenticationHooks {
     restrict?: any;
   };
 
-  type hook = any;
-
   function queryWithCurrentUser<T>(options: associationOptions): Hook;
 
   function restrictToOwner(options: associationOptions): Hook;
