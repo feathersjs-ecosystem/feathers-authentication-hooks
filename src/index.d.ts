@@ -1,4 +1,17 @@
 declare namespace feathersAuthenticationHooks {
+  interface Hook {
+    <T>(hook: HookProps<T>): Promise<any> | void;
+  }
+
+  interface HookProps<T> {
+    method?: string;
+    type: 'before' | 'after' | 'error';
+    params?: any;
+    data?: T;
+    result?: T;
+    app?: feathers.Application;
+  }
+
   type associationOptions = {
     idField?: string;
     as?: string;
@@ -18,12 +31,19 @@ declare namespace feathersAuthenticationHooks {
     restrict?: any;
   };
 
-  function queryWithCurrentUser(options: associationOptions): void;
-  function restrictToOwner(options: associationOptions): void;
-  function restrictToAuthenticated(options: {entity: string}): void;
-  function associateCurrentUser(options: associationOptions): void;
-  function restrictToRoles(options: roleOptions): void;
-  function hasRoleOrRestrict(options: restrictOptions): void;
+  type hook = any;
+
+  function queryWithCurrentUser<T>(options: associationOptions): Hook;
+
+  function restrictToOwner(options: associationOptions): Hook;
+
+  function restrictToAuthenticated(options: {entity?: string}): Hook;
+
+  function associateCurrentUser(options: associationOptions): Hook;
+
+  function restrictToRoles(options: roleOptions): Hook;
+
+  function hasRoleOrRestrict(options: restrictOptions): Hook;
 }
 
 export = feathersAuthenticationHooks;
