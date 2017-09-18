@@ -54,8 +54,8 @@ export default function (options = {}) {
       }
 
       return hook.service.find({ query }, params).then(results => {
-        if (hook.method === 'get' && Array.isArray(results) && results.length === 1) {
-          hook.result = results[0];
+        if (hook.method === 'get' && results.data.length === 1) {
+          hook.result = results.data[0];
           return hook;
         } else {
           hook.result = results;
@@ -132,8 +132,8 @@ export default function (options = {}) {
       }
 
       return hook.service.find({ query }, params).then(results => {
-        if (hook.method === 'get' && Array.isArray(results) && results.length === 1) {
-          hook.result = results[0];
+        if (hook.method === 'get' && results.data.length === 1) {
+          hook.result = results.data[0];
           return hook;
         } else {
           hook.result = results;
