@@ -3,7 +3,8 @@ import set from 'lodash.set';
 
 const defaults = {
   idField: '_id',
-  as: 'userId'
+  as: 'userId',
+  expandPaths: true
 };
 
 export default function (options = {}) {
@@ -28,6 +29,9 @@ export default function (options = {}) {
       throw new Error(`Current user is missing '${options.idField}' field.`);
     }
 
-    set(hook.params, `query.${options.as}`, id);
+    if (defaults.expandPaths) {
+      set(hook.params, `query.${options.as}`, id);
+    } else {
+      hook.params.query[optioins.as] = id;
   };
 }
