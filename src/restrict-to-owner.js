@@ -5,7 +5,8 @@ import queryWithCurrentUser from './query-with-current-user';
 
 const defaults = {
   idField: '_id',
-  ownerField: 'userId'
+  ownerField: 'userId',
+  expandPaths: true
 };
 
 export default function (options = {}) {
@@ -24,7 +25,8 @@ export default function (options = {}) {
     if (hook.method === 'find' || hook.id === null) {
       return queryWithCurrentUser({
         idField: options.idField,
-        as: options.ownerField
+        as: options.ownerField,
+        expandPaths: options.expandPaths
       })(hook);
     }
 
