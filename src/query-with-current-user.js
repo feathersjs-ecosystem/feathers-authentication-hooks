@@ -29,9 +29,10 @@ export default function (options = {}) {
       throw new Error(`Current user is missing '${options.idField}' field.`);
     }
 
-    if (defaults.expandPaths) {
+    if (options.expandPaths) {
       set(hook.params, `query.${options.as}`, id);
     } else {
-      hook.params.query[optioins.as] = id;
+      hook.params.query[options.as] = id;
+    }
   };
 }
