@@ -1,5 +1,22 @@
 # Change Log
 
+## [v0.1.5](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.5) (2017-10-17)
+[Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v0.1.4...v0.1.5)
+
+**Closed issues:**
+
+- restricToOwner doesn't seem work... [\#24](https://github.com/feathersjs/feathers-authentication-hooks/issues/24)
+- restrictToRoles with custom id field [\#20](https://github.com/feathersjs/feathers-authentication-hooks/issues/20)
+
+**Merged pull requests:**
+
+- Update mocha to the latest version 🚀 [\#31](https://github.com/feathersjs/feathers-authentication-hooks/pull/31) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Add `expandPaths` option to en/disable `options.as` path expansion [\#30](https://github.com/feathersjs/feathers-authentication-hooks/pull/30) ([jus101](https://github.com/jus101))
+- Update sinon to the latest version 🚀 [\#29](https://github.com/feathersjs/feathers-authentication-hooks/pull/29) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update debug to the latest version 🚀 [\#25](https://github.com/feathersjs/feathers-authentication-hooks/pull/25) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update sinon to the latest version 🚀 [\#23](https://github.com/feathersjs/feathers-authentication-hooks/pull/23) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update chai to the latest version 🚀 [\#21](https://github.com/feathersjs/feathers-authentication-hooks/pull/21) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v0.1.4](https://github.com/feathersjs/feathers-authentication-hooks/tree/v0.1.4) (2017-06-01)
 [Full Changelog](https://github.com/feathersjs/feathers-authentication-hooks/compare/v0.1.3...v0.1.4)
 
