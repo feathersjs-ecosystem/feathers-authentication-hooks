@@ -2,6 +2,8 @@ import errors from 'feathers-errors';
 import get from 'lodash.get';
 
 export default function (options = { entity: 'user' }) {
+  console.error('The restrictToAuthenticated hook is deprecated. The latest feathers-authentication authenticate hook handles this already.');
+  
   return function (hook) {
     if (hook.type !== 'before') {
       throw new Error(`The 'restrictToAuthenticated' hook should only be used as a 'before' hook.`);
