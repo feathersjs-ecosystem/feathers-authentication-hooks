@@ -3,8 +3,6 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/feathersjs-ecosystem/feathers-authentication-hooks.svg)](https://greenkeeper.io/)
 
 [![Build Status](https://travis-ci.org/feathersjs-ecosystem/feathers-authentication-hooks.png?branch=master)](https://travis-ci.org/feathersjs-ecosystem/feathers-authentication-hooks)
-[![Code Climate](https://codeclimate.com/github/feathersjs-ecosystem/feathers-authentication-hooks/badges/gpa.svg)](https://codeclimate.com/github/feathersjs-ecosystem/feathers-authentication-hooks)
-[![Test Coverage](https://codeclimate.com/github/feathersjs-ecosystem/feathers-authentication-hooks/badges/coverage.svg)](https://codeclimate.com/github/feathersjs-ecosystem/feathers-authentication-hooks/coverage)
 [![Dependency Status](https://img.shields.io/david/feathersjs-ecosystem/feathers-authentication-hooks.svg?style=flat-square)](https://david-dm.org/feathersjs-ecosystem/feathers-authentication-hooks)
 [![Download Status](https://img.shields.io/npm/dm/feathers-authentication-hooks.svg?style=flat-square)](https://www.npmjs.com/package/feathers-authentication-hooks)
 
@@ -63,25 +61,6 @@ app.service('messages').before({
 - `idField` (default: '_id') [optional] - The id field on your user object.
 - `ownerField` (default: 'userId') [optional] - The id field for a user on your resource.
 - `expandPaths` (default: true) [optional] - Prevent path expansion when the DB Adapter doesn't support it. Also see [queryWithCurrentUser](#queryWithCurrentUser).
-
-
-## restrictToAuthenticated
-
-The `restrictToAuthenticated` hook throws an error if there isn't a logged-in user by checking for the `context.params.user` object. It can be used on **any** service method and is intended to be used as a **before** hook. It doesn't take any arguments.
-
-```js
-const hooks = require('feathers-authentication-hooks');
-
-app.service('user').before({
-  get: [
-    hooks.restrictToAuthenticated()
-  ]
-});
-```
-
-#### Options
-
-- `entity` (default: 'user') [optional] - The property name on `context.params` to check for
 
 
 ## associateCurrentUser
