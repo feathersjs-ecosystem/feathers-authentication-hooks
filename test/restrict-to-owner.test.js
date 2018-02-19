@@ -144,7 +144,7 @@ describe('restrictToOwner', () => {
       });
     });
 
-    describe('when is is `null`', () => {
+    describe('when id is `null`', () => {
       it('when query is empty, uses queryWithCurrentUser', () => {
         hook.id = null;
 
