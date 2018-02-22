@@ -3,7 +3,9 @@ import sinon from 'sinon';
 import { restrictToRoles } from '../src/index';
 
 let MockData;
+let MockData2;
 let MockService;
+let MockService2;
 let options;
 
 describe('restrictToRoles', () => {
@@ -12,8 +14,15 @@ describe('restrictToRoles', () => {
       userId: '1',
       text: 'hey'
     };
+    MockData2 = {
+      userId: ['1'],
+      text: 'hey'
+    };
     MockService = {
       get: sinon.stub().returns(Promise.resolve(MockData))
+    };
+    MockService2 = {
+      get: sinon.stub().returns(Promise.resolve(MockData2))
     };
     options = { roles: ['admin', 'super'] };
   });
@@ -183,6 +192,44 @@ describe('restrictToRoles', () => {
               expect(error.code).to.equal(403);
               done();
             });
+          });
+        });
+
+        describe('when an empty array is passed', () => {
+          it('throws an error', () => {
+            hook.userId = [];
+
+            try {
+              restrictToRoles(options)(hook);
+            } catch (error) {
+              expect(error).to.not.equal(undefined);
+            }
+          });
+        });
+
+        describe('when user does not own the resource and idField is an array', () => {
+          it('returns a Forbidden error', done => {
+            hook.userId = ['1'];
+            hook.params.user._id = '2';
+            let fn = restrictToRoles(options);
+
+            fn.call(MockService2, hook).then(done).catch(error => {
+              expect(error.code).to.equal(403);
+              done();
+            });
+          });
+        });
+
+        describe('when user owns the resource and idField is an array', () => {
+          it('does nothing', done => {
+            hook.userId = ['1'];
+
+            let fn = restrictToRoles(options);
+
+            fn.call(MockService2, hook).then(returnedHook => {
+              expect(returnedHook).to.deep.equal(hook);
+              done();
+            }).catch(done);
           });
         });
 
