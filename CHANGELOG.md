@@ -1,5 +1,19 @@
 # Change Log
 
+## [v0.1.7](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v0.1.7) (2018-02-22)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v0.1.6...v0.1.7)
+
+**Closed issues:**
+
+- \[feature request\] `restrictToRole` can support `ownerField` as array, just like `restrictToOwner` [\#39](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/39)
+
+**Merged pull requests:**
+
+- hasRoleOrRestrict should call find with a single, merged parameter [\#42](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/42) ([gsavoie](https://github.com/gsavoie))
+- RestrictToRoles support ownerField value as array [\#40](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/40) ([beeplin](https://github.com/beeplin))
+- Update mocha to the latest version 🚀 [\#38](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/38) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update semistandard to the latest version 🚀 [\#37](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/37) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v0.1.6](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v0.1.6) (2017-12-19)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v0.1.5...v0.1.6)
 
