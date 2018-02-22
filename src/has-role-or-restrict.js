@@ -53,7 +53,7 @@ export default function (options = {}) {
         return hook;
       }
 
-      return hook.service.find({ query }, params).then(results => {
+      return hook.service.find(Object.assign({}, params, { query })).then(results => {
         if (hook.method === 'get' && Array.isArray(results) && results.length === 1) {
           hook.result = results[0];
           return hook;
@@ -131,7 +131,7 @@ export default function (options = {}) {
         return hook;
       }
 
-      return hook.service.find({ query }, params).then(results => {
+      return hook.service.find(Object.assign({}, params, { query })).then(results => {
         if (hook.method === 'get' && Array.isArray(results) && results.length === 1) {
           hook.result = results[0];
           return hook;
