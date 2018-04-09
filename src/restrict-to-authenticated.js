@@ -1,4 +1,4 @@
-import errors from 'feathers-errors';
+import errors from '@feathersjs/errors';
 import get from 'lodash.get';
 
 export default function (options = { entity: 'user' }) {
