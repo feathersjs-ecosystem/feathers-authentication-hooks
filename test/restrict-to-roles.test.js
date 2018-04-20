@@ -1,6 +1,7 @@
-import { expect } from 'chai';
-import sinon from 'sinon';
-import { restrictToRoles } from '../src/index';
+const { expect } = require('chai');
+const sinon = require('sinon');
+
+const { restrictToRoles } = require('../lib');
 
 let MockData;
 let MockData2;

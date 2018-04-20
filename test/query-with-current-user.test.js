@@ -1,5 +1,6 @@
-import { expect } from 'chai';
-import { queryWithCurrentUser } from '../src/index';
+const { expect } = require('chai');
+
+const { queryWithCurrentUser } = require('../lib');
 
 describe('queryWithCurrentUser', () => {
   describe('when not called as a before hook', () => {

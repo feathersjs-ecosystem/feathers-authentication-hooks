@@ -1,5 +1,6 @@
-import { expect } from 'chai';
-import { restrictToAuthenticated } from '../src/index';
+const { expect } = require('chai');
+
+const { restrictToAuthenticated } = require('../lib');
 
 describe('restrictToAuthenticated', () => {
   describe('when not called as a before hook', () => {
