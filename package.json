@@ -50,8 +50,8 @@
     "lib": "lib"
   },
   "dependencies": {
+    "@feathersjs/errors": "^3.3.0",
     "debug": "^3.0.0",
-    "feathers-errors": "^2.5.0",
     "lodash.get": "^4.4.2",
     "lodash.isplainobject": "^4.0.6",
     "lodash.set": "^4.3.2"

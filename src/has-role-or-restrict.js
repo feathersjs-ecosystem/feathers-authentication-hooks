@@ -1,4 +1,4 @@
-import errors from 'feathers-errors';
+import errors from '@feathersjs/errors';
 import isPlainObject from 'lodash.isplainobject';
 import get from 'lodash.get';
 import set from 'lodash.set';
