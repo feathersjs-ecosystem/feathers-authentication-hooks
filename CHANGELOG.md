@@ -1,5 +1,26 @@
 # Change Log
 
+## [v0.2.0](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v0.2.0) (2018-04-20)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v0.1.7...v0.2.0)
+
+**Closed issues:**
+
+- feathers-errors package is deprecated [\#46](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/46)
+- queryWithCurrentUser Generating the following error There is no current user to associate. [\#43](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/43)
+- hasRoleOrRestrict throwing "Too many arguments for 'find' method on Buzzard [\#41](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/41)
+- weird error   :  import get from 'lodash.get'; [\#32](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/32)
+- Nested id fields populates incorrect query [\#22](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/22)
+- Bring back ownerOrRestrict hook [\#11](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/11)
+
+**Merged pull requests:**
+
+- Update all dependencies and use latest Lodash [\#51](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/51) ([daffl](https://github.com/daffl))
+- Update to new plugin infrastructure, drop Node 4 support [\#50](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/50) ([daffl](https://github.com/daffl))
+- update `feathers-errors` package to `@feathersjs/errors` \(\#46\) [\#47](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/47) ([mlippert](https://github.com/mlippert))
+- Update sinon to the latest version 🚀 [\#45](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/45) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update sinon-chai to the latest version 🚀 [\#44](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/44) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- fix\(hasRoleOrRestrict\): usage w/ get method returns correct result [\#28](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/28) ([meatwallace](https://github.com/meatwallace))
+
 ## [v0.1.7](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v0.1.7) (2018-02-22)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v0.1.6...v0.1.7)
 
