@@ -3,7 +3,8 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import { hasRoleOrRestrict } from '../src/index';
 
-let mockFind = sinon.stub().returns(Promise.resolve([{text: 'test', approved: true}]));
+let mockRecord = { text: 'test', approved: true };
+let mockFind = sinon.stub().returns(Promise.resolve({ data: [mockRecord] }));
 let mockService = {
   find: mockFind
 };
@@ -113,6 +114,29 @@ describe('hasRoleOrRestrict', () => {
       hasRoleOrRestrict({roles: ['admin'], restrict: {approved: true}, idField: '_id'}).call(mockService, hook);
       expect(mockFind).to.be.calledWith({ provider: undefined, query: {'_id': '525235', approved: true} });
     });
+
+    describe('when method is get', () => {
+      it('should add result to hook as flat object', done => {
+        let hook = {
+          app: {
+            get: function () {}
+          },
+          service: MockService,
+          method: 'get',
+          type: 'before',
+          params: {
+            provider: 'rest'
+          }
+        };
+
+        hasRoleOrRestrict(options)(hook)
+          .then(returnedHook => {
+            expect(returnedHook.result).to.equal(mockRecord);
+            done();
+          })
+          .catch(done);
+      });
+    });
   });
 
   describe('when user exists', () => {
@@ -203,6 +227,29 @@ describe('hasRoleOrRestrict', () => {
 
         hasRoleOrRestrict({roles: ['admin'], restrict: {approved: true}, idField: '_id'}).call(mockService, hook);
         expect(mockFind).to.be.calledWith({ provider: undefined, query: {'_id': '525235', approved: true} });
+      });
+
+      describe('when method is get', () => {
+        it('should add result to hook as flat object', done => {
+          let hook = {
+            app: {
+              get: function () {}
+            },
+            service: MockService,
+            method: 'get',
+            type: 'before',
+            params: {
+              provider: 'rest'
+            }
+          };
+
+          hasRoleOrRestrict(options)(hook)
+            .then(returnedHook => {
+              expect(returnedHook.result).to.equal(mockRecord);
+              done();
+            })
+            .catch(done);
+        });
       });
 
       describe('when owner option enabled', () => {
