@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { associateCurrentUser } from '../src/';
+const { expect } = require('chai');
+const { associateCurrentUser } = require('../lib/');
 
 describe('associateCurrentUser', () => {
   describe('when not called as a before hook', () => {

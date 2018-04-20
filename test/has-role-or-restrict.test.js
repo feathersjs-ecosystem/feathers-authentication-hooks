@@ -1,7 +1,9 @@
-import chai, { expect } from 'chai';
-import sinon from 'sinon';
-import sinonChai from 'sinon-chai';
-import { hasRoleOrRestrict } from '../src/index';
+const chai = require('chai');
+const sinon = require('sinon');
+const sinonChai = require('sinon-chai');
+
+const { hasRoleOrRestrict } = require('../lib/index');
+const { expect } = chai;
 
 let mockRecord = { text: 'test', approved: true };
 let mockFind = sinon.stub().returns(Promise.resolve({ data: [mockRecord] }));

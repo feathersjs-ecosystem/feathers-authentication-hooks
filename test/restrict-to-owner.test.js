@@ -1,6 +1,7 @@
-import { expect } from 'chai';
-import sinon from 'sinon';
-import { restrictToOwner } from '../src/index';
+const { expect } = require('chai');
+const sinon = require('sinon');
+
+const { restrictToOwner } = require('../lib');
 
 const app = {
   get () { return {}; }
