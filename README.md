@@ -82,62 +82,8 @@ app.service('messages').before({
 - `idField` (default: '_id') [optional] - The id field on your user object.
 - `as` (default: 'userId') [optional] - The id field for a user that you want to set on your resource.
 
-
-## restrictToRoles
-
-`restrictToRoles` is meant to be used as a **before** hook. It only allows the user to retrieve resources that are owned by them or protected by certain roles. It will return a _Forbidden_ error without the proper permissions. It can be used on `all` methods when the **owner** option is set to 'false'.  When the **owner** option is set to `true` the hook can only be used on `get`, `update`, `patch`, and `remove` service methods.
-
-```js
-const hooks = require('feathers-authentication-hooks');
-
-app.service('messages').before({
-  remove: [
-    hooks.restrictToRoles({
-        roles: ['admin', 'super-admin'],
-        fieldName: 'permissions',
-        idField: 'id',
-        ownerField: 'sentBy',
-        owner: true
-    })
-  ]
-});
-```
-
-#### Options
-
-- `roles` (**required**) - An array of roles, or a role string that a user must have at least one of in order to access the resource.
-- `fieldName` (default: 'roles') [optional] - The field on your user object that denotes their role or roles.
-- `idField` (default: '_id') [optional] - The id field on your user object.
-- `ownerField` (default: 'userId') [optional] - The id field for a user on your resource.
-- `owner` (default: 'false') [optional] - Denotes whether it should also allow owners regardless of their role (ie. the user has the role **or** is an owner).
-
-
-## hasRoleOrRestrict
-
-`hasRoleOrRestrict` is meant to be used as a **before** hook for any service on the **find** or **get** methods. Unless the user has one of the roles provided, it will add a restriction onto the query to limit what resources return.
-
-```js
-const hooks = require('feathers-authentication-hooks');
-
-app.service('messages').before({
-  find: [
-    hooks.hasRoleOrRestrict({
-        roles: ['admin', 'super-admin'],
-        fieldName: 'permissions',
-        restrict: { approved: true }
-    })
-  ]
-});
-```
-
-#### Options
-
-- `roles` (**required**) - An array of roles that a user must have at least one of in order to access the resource.
-- `fieldName` (default: 'roles') [optional] - The field on your user object that denotes their roles.
-- `restrict` (default: undefined) - The query to merge into the client query to limit what resources are accessed
-
 ## License
 
-Copyright (c) 2017
+Copyright (c) 2018
 
 Licensed under the [MIT license](LICENSE).

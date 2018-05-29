@@ -18,10 +18,6 @@ describe('Auth hooks', () => {
     expect(typeof hooks.queryWithCurrentUser).to.equal('function');
   });
 
-  it('exposes restrictToAuthenticated hook', () => {
-    expect(typeof hooks.restrictToAuthenticated).to.equal('function');
-  });
-
   it('exposes restrictToOwner hook', () => {
     expect(typeof hooks.restrictToOwner).to.equal('function');
   });
