@@ -1,5 +1,19 @@
 # Change Log
 
+## [v0.3.1](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v0.3.1) (2018-08-21)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v0.3.0...v0.3.1)
+
+**Closed issues:**
+
+-  Error: There is no current user to associate. [\#49](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/49)
+- queryWithCurrentUser Generating the following error There is no current user to associate. [\#43](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/43)
+
+**Merged pull requests:**
+
+- remove the hard coded "user"  [\#59](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/59) ([abalad](https://github.com/abalad))
+- Update sinon to the latest version 🚀 [\#57](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/57) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update restrict-to-owner.js [\#56](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/56) ([bertho-zero](https://github.com/bertho-zero))
+
 ## [v0.3.0](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v0.3.0) (2018-05-29)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v0.2.0...v0.3.0)
 
@@ -18,7 +32,6 @@
 **Closed issues:**
 
 - feathers-errors package is deprecated [\#46](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/46)
-- queryWithCurrentUser Generating the following error There is no current user to associate. [\#43](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/43)
 - hasRoleOrRestrict throwing "Too many arguments for 'find' method on Buzzard [\#41](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/41)
 - weird error   :  import get from 'lodash.get'; [\#32](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/32)
 - Nested id fields populates incorrect query [\#22](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/22)
