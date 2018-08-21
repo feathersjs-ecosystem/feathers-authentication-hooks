@@ -28,13 +28,8 @@ describe('associateCurrentUser', () => {
 
     describe('when provider does not exist', () => {
       it('does not do anything', () => {
-        try {
-          var returnedHook = associateCurrentUser()(hook);
-          expect(returnedHook).to.deep.equal(hook);
-        } catch (error) {
-          // It should never get here
-          expect(true).to.equal(false);
-        }
+        var returnedHook = associateCurrentUser()(hook);
+        expect(returnedHook).to.deep.equal(hook);
       });
     });
 
