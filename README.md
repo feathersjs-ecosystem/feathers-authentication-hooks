@@ -81,6 +81,7 @@ app.service('messages').before({
 
 - `idField` (default: '_id') [optional] - The id field on your user object.
 - `as` (default: 'userId') [optional] - The id field for a user that you want to set on your resource.
+- `array` (default: 'false') [optional] - is the id field for user on your resource an array? (multiple owners).
 
 ## License
 
