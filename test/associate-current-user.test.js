@@ -137,5 +137,27 @@ describe('associateCurrentUser', () => {
       expect(hook.data[0].userId).to.equal('1');
       expect(hook.data[1].userId).to.equal('1');
     });
+
+    it('adds the user\'s ID to a single object users array', () => {
+      hook.data = { text: 'Hi' };
+
+      associateCurrentUser({as: 'users', array: true})(hook);
+
+      console.log(hook.data.users);
+
+      expect(hook.data.users).to.be.an('array');
+      expect(hook.data.users[0]).to.equal('1');
+    });
+
+    it('adds the user\'s ID to a single object existing users array', () => {
+      hook.data = { text: 'Hi', users: [99] };
+
+      associateCurrentUser({as: 'users', array: true})(hook);
+
+      console.log(hook.data.users);
+
+      expect(hook.data.users).to.be.an('array');
+      expect(hook.data.users[1]).to.equal('1');
+    });
   });
 });
