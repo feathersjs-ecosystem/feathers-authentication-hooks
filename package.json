@@ -47,17 +47,16 @@
     "lib": "lib"
   },
   "dependencies": {
-    "@feathersjs/errors": "^4.3.0",
-    "debug": "^4.0.0",
-    "lodash": "^4.17.5"
+    "@feathersjs/errors": "^4.3.3",
+    "debug": "^4.1.1",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "body-parser": "^1.15.2",
-    "chai": "^4.1.0",
+    "@feathersjs/feathers": "^4.3.3",
+    "body-parser": "^1.19.0",
+    "feathers-memory": "^4.0.1",
     "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^6.0.0",
-    "semistandard": "^13.0.1",
-    "sinon": "^7.2.4",
-    "sinon-chai": "^3.0.0"
+    "mocha": "^6.2.1",
+    "semistandard": "^14.2.0"
   }
 }
