@@ -1,25 +1,93 @@
 # feathers-authentication-hooks
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/feathersjs-ecosystem/feathers-authentication-hooks.svg)](https://greenkeeper.io/)
-
-[![Build Status](https://travis-ci.org/feathersjs-ecosystem/feathers-authentication-hooks.png?branch=master)](https://travis-ci.org/feathersjs-ecosystem/feathers-authentication-hooks)
+[![Build Status](https://travis-ci.org/feathersjs-ecosystem/feathers-authentication-hooks.svg?branch=master)](https://travis-ci.org/feathersjs-ecosystem/feathers-authentication-hooks)
 [![Dependency Status](https://img.shields.io/david/feathersjs-ecosystem/feathers-authentication-hooks.svg?style=flat-square)](https://david-dm.org/feathersjs-ecosystem/feathers-authentication-hooks)
 [![Download Status](https://img.shields.io/npm/dm/feathers-authentication-hooks.svg?style=flat-square)](https://www.npmjs.com/package/feathers-authentication-hooks)
 
-> Useful hooks for authentication and authorization
+> A hook that helps limiting and associating user requests
 
 ```
 $ npm install feathers-authentication-hooks --save
 ```
 
-`feathers-authentication-hooks` is a package containing some useful hooks for authentication and authorization. For more information about hooks, refer to the [chapter on hooks](../hooks.md). 
+`feathers-authentication-hooks` contains a [Feathers hook](https://docs.feathersjs.com/api/hooks.html) that allows to set query or data properties based on other existing properties (like an authenticated user or organization id).
 
-> **Note:** Restricting authentication hooks will only run when `params.provider` is set (as in when the method is accessed externally through a transport like [REST](../rest.md) or [Socketio](../socketio.md)).
+> **Note:** `feathers-authentication-hooks` v1.0.0 and later requires Feathers 4 or later.
 
+## setField
 
-## queryWithCurrentUser
+The `setField` hook allows to set a field on the hook context based on the value of another field on the hook context.
 
-The `queryWithCurrentUser` **before** hook will automatically add the user's `id` as a parameter in the query. This is useful when you want to only return data, for example "messages", that were sent by the current user.
+### Options
+
+- `from` *required* - The property on the hook context to use. Can be an array (e.g. `[ 'params', 'user', 'id' ]` or a dot separated string (e.g. `'params.user.id'`).
+- `as` *required* - The property on the hook context to set. Can be an array (e.g. `[ 'params', 'query', 'userId' ]` or a dot separated string (e.g. `'params.query.userId'`).
+- `allowUndefined` (default: `false`) - If set to `false`, an error will be thrown if the value of `from` is `undefined` in an external request (`params.provider` is set). The hook will do nothing if set to `true`. This only applies to external calls only, internal calls (`params.provider` is not set) will never error.
+
+### Examples
+
+Limit all external access to the `users` service to the authenticated user:
+
+> __Note:__ For MongoDB, Mongoose and NeDB `params.user.id` needs to be changed to `params.user._id`. For any other custom id accordingly.
+
+```js
+const { authenticate } = require('@feathersjs/authentication');
+const { setField } = require('feathers-authentication-hooks');
+
+app.service('users').hooks({
+  before: {
+    all: [
+      authenticate('jwt'),
+      setField({
+        from: 'params.user.id',
+        as: 'params.query.id'
+      })
+    ]
+  }
+})
+```
+
+Set the current user id as `userId` when creating a message and only allow users to edit and remove their own messages:
+
+```js
+const { authenticate } = require('@feathersjs/authentication');
+const { setField } = require('feathers-authentication-hooks');
+
+app.service('messages').hooks({
+  before: {
+    all: [
+      authenticate('jwt')
+    ],
+    create: [
+      setField({
+        from: 'params.user.id',
+        as: 'data.userId'
+      })
+    ]
+    patch: [
+      setField({
+        from: 'params.user.id',
+        as: 'params.query.userId'
+      })
+    ],
+    remove: [
+      setField({
+        from: 'params.user.id',
+        as: 'params.query.userId'
+      })
+    ]
+  }
+})
+```
+
+## Migrating to v1.0.0
+
+The previous versions of `feathers-authentication-hooks` contained several hooks that required more detailed configuration and knowledge about the application and authentication. Due to [improvements in the database adapters](https://docs.feathersjs.com/guides/migrating.html#querying-by-id) in Feathers 4 those hooks can now all be replaced with the `setField` hook and a more explicit configuration.
+
+### queryWithCurrentUser
+
+Before:
 
 ```js
 const hooks = require('feathers-authentication-hooks');
@@ -31,20 +99,41 @@ app.service('messages').before({
 });
 ```
 
-#### Options
+Now:
 
-- `idField` (default: '_id') [optional] - The id field on your user object.
-- `as` (default: 'userId') [optional] - The id field for a user on the resource you are requesting.
-- `expandPaths` (default: true) [optional] - Prevent path expansion when the DB Adapter doesn't support it. Ex: With this option set to false, a value like 'foo.userId' won't be expanded to a nested `{ "foo": { "userId": 51 } }` but instead be set as `{ "foo.userId": 51 }`.
+```js
+const { setField } = require('feathers-authentication-hooks');
 
-When using this hook with the default options the `User._id` will be copied into `context.params.query.userId`.
+app.service('messages').before({
+  find: [
+    setField({
+      from: 'params.user.id',
+      as: 'params.query.sentBy'
+    })
+  ]
+});
+```
 
+Dot separated paths in queries (previously with the `expandPaths` option) are possible by passing an array as the field name (using [Lodash _.set](https://lodash.com/docs/4.17.15#set) internally):
 
-## restrictToOwner
+```js
+const { setField } = require('feathers-authentication-hooks');
 
-`restrictToOwner` is meant to be used as a **before** hook. It only allows the user to retrieve or modify resources that are owned by them. It will return a _Forbidden_ error without the proper permissions. It can be used on *any* method.
+app.service('messages').before({
+  find: [
+    setField({
+      from: 'params.user.id',
+      as: [ 'params', 'query', 'nested.document.sentBy' ]
+    })
+  ]
+});
+```
 
-For `find` method calls and `patch`, `update` and `remove` of many (with `id` set to `null`), the [queryWithCurrentUser](#queryWithCurrentUser) hook will be called to limit the query to the current user. For all other cases it will retrieve the record and verify the owner before continuing.
+### restrictToOwner
+
+Due to improvements in the Feathers 4 database adapters restricting to an owner works the exact same as a `queryWithCurrentUser`. It will now throw a `NotFound` instead of a `Forbidden` error which is also more secure since an unauthorized user does not get the information if the record exists and no longer make an additional request.
+
+Before:
 
 ```js
 const hooks = require('feathers-authentication-hooks');
@@ -56,16 +145,26 @@ app.service('messages').before({
 });
 ```
 
-#### Options
+Now:
 
-- `idField` (default: '_id') [optional] - The id field on your user object.
-- `ownerField` (default: 'userId') [optional] - The id field for a user on your resource.
-- `expandPaths` (default: true) [optional] - Prevent path expansion when the DB Adapter doesn't support it. Also see [queryWithCurrentUser](#queryWithCurrentUser).
+```js
+const { setField } = require('feathers-authentication-hooks');
 
+app.service('messages').before({
+  remove: [
+    setField({
+      from: 'params.user.id',
+      as: 'params.query.userId'
+    })
+  ]
+});
+```
 
-## associateCurrentUser
+### associateCurrentUser
 
-The `associateCurrentUser` **before** hook is similar to the `queryWithCurrentUser`, but works on the incoming **data** instead of the **query** params. It's useful for automatically adding the userId to any resource being created. It can be used on `create`, `update`, or `patch` methods.
+The `associateCurrentUser` can also be replaced by `setField` by setting `data` instead of `params.query.*`
+
+Before:
 
 ```js
 const hooks = require('feathers-authentication-hooks');
@@ -77,13 +176,23 @@ app.service('messages').before({
 });
 ```
 
-#### Options
+Now:
 
-- `idField` (default: '_id') [optional] - The id field on your user object.
-- `as` (default: 'userId') [optional] - The id field for a user that you want to set on your resource.
+```js
+const { setField } = require('feathers-authentication-hooks');
+
+app.service('messages').before({
+  create: [
+    setField({
+      from: 'params.user.id',
+      as: 'data.sentBy'
+    })
+  ]
+});
+```
 
 ## License
 
-Copyright (c) 2018
+Copyright (c) 2019
 
 Licensed under the [MIT license](LICENSE).
