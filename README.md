@@ -54,7 +54,7 @@ Set the current user id as `userId` when creating a message and only allow users
 const { authenticate } = require('@feathersjs/authentication');
 const { setField } = require('feathers-authentication-hooks');
 
-app.service('users').hooks({
+app.service('messages').hooks({
   before: {
     all: [
       authenticate('jwt')
