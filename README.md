@@ -21,13 +21,15 @@ The `setField` hook allows to set a field on the hook context based on the value
 
 ### Options
 
-- `from` *required* - The property on the hook context to use. Can be an array (e.g. `[ 'params', 'user', 'id' ]` or a dot separated string (e.g. `'params.user.id'`).
-- `as` *required* - The property on the hook context to set. Can be an array (e.g. `[ 'params', 'query', 'userId' ]` or a dot separated string (e.g. `'params.query.userId'`).
-- `allowUndefined` (default: `false`) - If set to `false`, an error will be thrown if the value of `from` is `undefined` in an external request (`params.provider` is set). The hook will do nothing if set to `true`. This only applies to external calls only, internal calls (`params.provider` is not set) will never error.
+- `from` *required* - The property on the hook context to use. Can be an array (e.g. `[ 'params', 'user', 'id' ]`) or a dot separated string (e.g. `'params.user.id'`).
+- `as` *required* - The property on the hook context to set. Can be an array (e.g. `[ 'params', 'query', 'userId' ]`) or a dot separated string (e.g. `'params.query.userId'`).
+- `allowUndefined` (default: `false`) - If set to `false`, an error will be thrown if the value of `from` is `undefined` in an external request (`params.provider` is set). On internal calls or if set to true `true` for external calls the hook will do nothing.
+
+> __Important:__ This hook should be used after the [authenticate hook](https://docs.feathersjs.com/api/authentication/hook.html#authenticate-strategies) when using user information (fields from `params.user`).
 
 ### Examples
 
-Limit all external access to the `users` service to the authenticated user:
+Limit all external access of the `users` service to the authenticated user:
 
 > __Note:__ For MongoDB, Mongoose and NeDB `params.user.id` needs to be changed to `params.user._id`. For any other custom id accordingly.
 
@@ -64,7 +66,7 @@ app.service('messages').hooks({
         from: 'params.user.id',
         as: 'data.userId'
       })
-    ]
+    ],
     patch: [
       setField({
         from: 'params.user.id',
