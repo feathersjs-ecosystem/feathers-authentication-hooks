@@ -1,5 +1,24 @@
 # Change Log
 
+## [v1.0.0](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v1.0.0) (2019-10-01)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v0.3.1...v1.0.0)
+
+**Closed issues:**
+
+- Broken link in documentation [\#69](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/69)
+- Migration guide for restrictToRoles functionality [\#63](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/63)
+- An in-range update of debug is breaking the build 🚨 [\#60](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/60)
+
+**Merged pull requests:**
+
+- Add TypeScript definitions [\#74](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/74) ([daffl](https://github.com/daffl))
+- Refactor into single setField hook for Feathers 4 [\#73](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/73) ([daffl](https://github.com/daffl))
+- Update @feathersjs/errors to the latest version 🚀 [\#72](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/72) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update mocha to the latest version 🚀 [\#67](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/67) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update sinon to the latest version 🚀 [\#66](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/66) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Greenkeeper/semistandard 13.0.1 [\#65](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/65) ([daffl](https://github.com/daffl))
+- Update debug to the latest version 🚀 [\#61](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/61) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+
 ## [v0.3.1](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v0.3.1) (2018-08-21)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v0.3.0...v0.3.1)
 
