@@ -1,5 +1,12 @@
 # Change Log
 
+## [v1.0.1](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v1.0.1) (2019-10-17)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v1.0.0...v1.0.1)
+
+**Merged pull requests:**
+
+- Add types mapping [\#75](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/75) ([daffl](https://github.com/daffl))
+
 ## [v1.0.0](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v1.0.0) (2019-10-01)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v0.3.1...v1.0.0)
 
