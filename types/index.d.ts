@@ -3,7 +3,7 @@ import { Hook } from '@feathersjs/feathers';
 
 export interface HookOptions {
   from: string;
-  as: string | Array<string>;
+  as: string | string[];
   allowUndefined?: boolean;
 }
 
