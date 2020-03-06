@@ -2,7 +2,7 @@
 import { Hook } from '@feathersjs/feathers';
 
 export interface HookOptions {
-  from: string;
+  from: string | string[];
   as: string | string[];
   allowUndefined?: boolean;
 }
