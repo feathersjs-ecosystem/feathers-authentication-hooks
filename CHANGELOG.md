@@ -1,5 +1,21 @@
 # Change Log
 
+## [v1.0.2](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v1.0.2) (2020-03-06)
+[Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v1.0.1...v1.0.2)
+
+**Closed issues:**
+
+- Newbie Q: Very confused about setting user ID. [\#80](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/issues/80)
+
+**Merged pull requests:**
+
+- Fix field error message and update dependencies [\#87](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/87) ([daffl](https://github.com/daffl))
+- Update dtslint to the latest version 🚀 [\#85](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/85) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update @types/node to the latest version 🚀 [\#82](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/82) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- allow array in typescript [\#81](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/81) ([nvitaterna](https://github.com/nvitaterna))
+- Update dtslint to the latest version 🚀 [\#78](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/78) ([greenkeeper[bot]](https://github.com/apps/greenkeeper))
+- Update dtslint to version 1.0.3 [\#77](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/pull/77) ([daffl](https://github.com/daffl))
+
 ## [v1.0.1](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/tree/v1.0.1) (2019-10-17)
 [Full Changelog](https://github.com/feathersjs-ecosystem/feathers-authentication-hooks/compare/v1.0.0...v1.0.1)
 
