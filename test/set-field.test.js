@@ -100,7 +100,7 @@ describe('setField', () => {
       });
     }, {
       name: 'Forbidden',
-      message: 'Expected field params.query.userId not available'
+      message: 'Expected field params.user.id not available'
     });
   });
 
