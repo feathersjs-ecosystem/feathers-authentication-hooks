@@ -97,7 +97,7 @@ app.service('messages').hooks({
     ],
     update: [
       limitToUser
-    ]
+    ],
     remove: [
       limitToUser
     ]
