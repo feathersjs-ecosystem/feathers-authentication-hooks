@@ -1,5 +1,7 @@
 # feathers-authentication-hooks
 
+> __Important:__ The `setField` hook from this repository has moved to [feathers-hooks-common](https://github.com/feathersjs-ecosystem/feathers-hooks-common). Also see [the documentation](https://hooks-common.feathersjs.com/hooks.html#setfield)
+
 [![Greenkeeper badge](https://badges.greenkeeper.io/feathersjs-ecosystem/feathers-authentication-hooks.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/feathersjs-ecosystem/feathers-authentication-hooks.svg?branch=master)](https://travis-ci.org/feathersjs-ecosystem/feathers-authentication-hooks)
 [![Dependency Status](https://img.shields.io/david/feathersjs-ecosystem/feathers-authentication-hooks.svg?style=flat-square)](https://david-dm.org/feathersjs-ecosystem/feathers-authentication-hooks)
